@@ -210,6 +210,23 @@
     padding:10px 14px; font-size:12px; color:var(--mist); text-align:center;
   }
 
+  /* ---------- academic calendar ---------- */
+  .cal-table{
+    width:100%; max-width:800px; margin:0 auto; border-collapse:collapse;
+    background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 1px 3px rgba(16,25,63,0.06);
+  }
+  .cal-table th{
+    background:var(--navy); color:var(--paper); text-align:left; padding:12px 16px; font-size:13px;
+    font-family:'Amiri', serif; font-weight:700;
+  }
+  .cal-table td{
+    padding:12px 16px; font-size:14px; border-bottom:1px solid var(--line); color:var(--ink);
+  }
+  .cal-table tr:last-child td{border-bottom:none;}
+  .cal-table td:first-child{font-weight:600; color:var(--navy); width:45%;}
+  body[dir="rtl"] .cal-table th, body[dir="rtl"] .cal-table td{text-align:right;}
+  .cal-note{font-size:12.5px; color:var(--mist); text-align:center; margin-top:14px; max-width:700px; margin-left:auto; margin-right:auto;}
+
   /* ---------- contact ---------- */
   .contact{background:var(--royal); color:var(--paper);}
   .contact .section-head h2{color:#fff;}
@@ -246,8 +263,10 @@
   </div>
   <div class="links">
     <a href="#about"><span class="i18n" data-en="About" data-ur="تعارف">About</span></a>
+    <a href="#history"><span class="i18n" data-en="History" data-ur="تاریخ">History</span></a>
     <a href="#academics"><span class="i18n" data-en="Academics" data-ur="تعلیمی نظام">Academics</span></a>
     <a href="#leadership"><span class="i18n" data-en="Leadership" data-ur="قیادت">Leadership</span></a>
+    <a href="#calendar"><span class="i18n" data-en="Calendar" data-ur="کیلنڈر">Calendar</span></a>
     <a href="#gallery"><span class="i18n" data-en="Gallery" data-ur="گیلری">Gallery</span></a>
     <a href="#contact"><span class="i18n" data-en="Contact" data-ur="رابطہ">Contact</span></a>
   </div>
@@ -286,6 +305,20 @@
       <p class="i18n" data-en="By choosing the name Iqra, the institution emphasizes that education is not merely about passing examinations but about developing responsible, knowledgeable, and God-conscious individuals — where discipline, respect, and faith go hand in hand." data-ur="اقرا نام کا انتخاب کر کے ادارہ اس بات پر زور دیتا ہے کہ تعلیم صرف امتحان پاس کرنے کا نام نہیں بلکہ ذمہ دار، باشعور اور خدا ترس افراد کی تربیت ہے۔ جہاں نظم و ضبط، احترام اور ایمان ساتھ ساتھ چلتے ہیں۔">By choosing the name Iqra, the institution emphasizes that education is not merely about passing examinations but about developing responsible, knowledgeable, and God-conscious individuals — where discipline, respect, and faith go hand in hand.</p>
       <p class="i18n" data-en="The school&#39;s vision extends beyond the classroom, helping students build strong communication skills, critical thinking, leadership, confidence, and a sense of responsibility toward society, family, and community." data-ur="سکول کا وژن کلاس روم سے آگے تک پھیلا ہوا ہے۔ یہ طلبہ میں مضبوط ابلاغی صلاحیتیں، تنقیدی سوچ، قیادت، اعتماد اور معاشرے، خاندان اور برادری کے تئیں ذمہ داری کا احساس پیدا کرتا ہے۔">The school's vision extends beyond the classroom, helping students build strong communication skills, critical thinking, leadership, confidence, and a sense of responsibility toward society, family, and community.</p>
     </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--paper);" id="history">
+  <div class="section-head">
+    <div class="kicker i18n" data-en="Our Journey" data-ur="ہمارا سفر">Our Journey</div>
+    <h2 class="i18n" data-en="Our History" data-ur="ہماری تاریخ">Our History</h2>
+  </div>
+  <div style="max-width:800px; margin:0 auto;">
+    <p class="i18n" style="font-size:15px; line-height:1.85; color:var(--ink); margin-bottom:16px;" data-en="The Iqra Islamic Educational System (The IIES) was established in 2018 with the great vision of providing the children of the region with a quality educational environment — one where Islamic education, high moral character, and modern knowledge come together in perfect harmony." data-ur="دی اقرا اسلامک ایجوکیشنل سسٹم (دی آئی آئی ای ایس) کا قیام سن 2018ء میں اس عظیم وژن کے ساتھ عمل میں آیا کہ علاقے کے بچوں کو ایسا معیاری تعلیمی ماحول فراہم کیا جائے، جہاں اسلامی تعلیم، اعلیٰ اخلاق اور جدید علوم کا حسین امتزاج موجود ہو۔">The Iqra Islamic Educational System (The IIES) was established in 2018 with the great vision of providing the children of the region with a quality educational environment — one where Islamic education, high moral character, and modern knowledge come together in perfect harmony.</p>
+    <p class="i18n" style="font-size:15px; line-height:1.85; color:var(--ink); margin-bottom:16px;" data-en="The institution was founded by three sincere, capable, and education-loving individuals: Engineer Imdad Ullah Momin, Engineer Subhan Ullah, and Maulana Muhammad Hussain. Their goal was not merely to establish a school, but to raise a generation adorned with knowledge, character, faith, and morality — one capable of serving their society and country in the best possible way." data-ur="اس ادارے کی بنیاد تین مخلص، باصلاحیت اور تعلیم دوست شخصیات انجینئر امداد اللہ مومن، انجینئر سبحان اللہ اور مولانا محمد حسین نے رکھی۔ ان کا مقصد صرف ایک اسکول قائم کرنا نہیں تھا، بلکہ ایسی نسل تیار کرنا تھا جو علم، کردار، ایمان اور اخلاق کے زیور سے آراستہ ہو اور اپنے معاشرے و ملک کی بہترین خدمت کر سکے۔">The institution was founded by three sincere, capable, and education-loving individuals: Engineer Imdad Ullah Momin, Engineer Subhan Ullah, and Maulana Muhammad Hussain. Their goal was not merely to establish a school, but to raise a generation adorned with knowledge, character, faith, and morality — one capable of serving their society and country in the best possible way.</p>
+    <p class="i18n" style="font-size:15px; line-height:1.85; color:var(--ink); margin-bottom:16px;" data-en="The institution began its educational journey with the Nursery class. By the grace of Allah Almighty, the visionary leadership of its founders, the tireless efforts of its teachers, and the full trust of parents, the institution achieved new milestones of progress every year. New classes were added step by step, until today, Alhamdulillah, The Iqra Islamic Educational System (The IIES) has successfully reached up to Class 8." data-ur="ادارے نے اپنے تعلیمی سفر کا آغاز نرسری کلاس سے کیا۔ اللہ تعالیٰ کے فضل و کرم، بانیانِ ادارہ کی دوراندیش قیادت، اساتذہ کی انتھک محنت اور والدین کے بھرپور اعتماد کی بدولت ادارہ ہر سال ترقی کی نئی منازل طے کرتا گیا۔ مرحلہ وار نئی جماعتوں کا اضافہ ہوتا رہا، یہاں تک کہ آج الحمدللہ دی اقرا اسلامک ایجوکیشنل سسٹم (دی آئی آئی ای ایس) کامیابی کے ساتھ کلاس ہشتم تک پہنچ چکا ہے۔">The institution began its educational journey with the Nursery class. By the grace of Allah Almighty, the visionary leadership of its founders, the tireless efforts of its teachers, and the full trust of parents, the institution achieved new milestones of progress every year. New classes were added step by step, until today, Alhamdulillah, The Iqra Islamic Educational System (The IIES) has successfully reached up to Class 8.</p>
+    <p class="i18n" style="font-size:15px; line-height:1.85; color:var(--ink); margin-bottom:16px;" data-en="Our effort is to provide students with an education that makes them successful in academic, moral, and practical fields. In sha Allah, the institution will continue its educational journey toward higher classes in the future, while further raising its academic standards." data-ur="ہماری کوشش ہے کہ طلبہ کو ایسی تعلیم فراہم کی جائے جو انہیں علمی، اخلاقی اور عملی میدانوں میں کامیاب بنائے۔ ان شاء اللہ مستقبل میں بھی ادارہ اپنے تعلیمی معیار کو مزید بلند کرتے ہوئے اعلیٰ جماعتوں تک اپنے تعلیمی سفر کو جاری رکھے گا۔">Our effort is to provide students with an education that makes them successful in academic, moral, and practical fields. In sha Allah, the institution will continue its educational journey toward higher classes in the future, while further raising its academic standards.</p>
+    <p class="i18n display" style="font-size:18px; font-style:italic; color:var(--navy); text-align:center; margin-top:26px; font-weight:600;" data-en="&quot;Knowledge, character, and faith — this is our identity, our asset, and our commitment.&quot;" data-ur="&quot;علم، کردار اور ایمان — یہی ہماری پہچان، ہمارا سرمایہ اور ہمارا عزم ہے۔&quot;">"Knowledge, character, and faith — this is our identity, our asset, and our commitment."</p>
   </div>
 </section>
 
@@ -414,6 +447,53 @@
       <div class="role">Owner</div>
     </div>
   </div>
+</section>
+
+<section class="section" style="background:var(--paper);" id="calendar">
+  <div class="section-head">
+    <div class="kicker i18n" data-en="Plan Ahead" data-ur="آگے کی منصوبہ بندی">Plan Ahead</div>
+    <h2 class="i18n" data-en="Academic Calendar" data-ur="تعلیمی کیلنڈر">Academic Calendar</h2>
+    <p class="lede i18n" data-en="Key dates for the academic session — admissions, exams, and holidays." data-ur="تعلیمی سیشن کی اہم تاریخیں — داخلے، امتحانات اور تعطیلات۔">Key dates for the academic session — admissions, exams, and holidays.</p>
+  </div>
+  <table class="cal-table">
+    <tr>
+      <th class="i18n" data-en="Event" data-ur="تقریب">Event</th>
+      <th class="i18n" data-en="Date" data-ur="تاریخ">Date</th>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Admissions Open" data-ur="داخلے کھلے ہیں">Admissions Open</td>
+      <td class="i18n" data-en="February" data-ur="فروری">February</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Session Start" data-ur="سیشن کا آغاز">Session Start</td>
+      <td class="i18n" data-en="1st February" data-ur="یکم فروری">1st February</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Mid Term Exam" data-ur="مڈ ٹرم امتحان">Mid Term Exam</td>
+      <td class="i18n" data-en="25th June – 5th July" data-ur="25 جون – 5 جولائی">25th June – 5th July</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Eid-ul-Azha Holidays" data-ur="عید الاضحیٰ کی تعطیلات">Eid-ul-Azha Holidays</td>
+      <td class="i18n" data-en="Dates vary (as per moon sighting)" data-ur="تاریخیں چاند نظر آنے کے مطابق مختلف ہو سکتی ہیں">Dates vary (as per moon sighting)</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Independence Day Holiday" data-ur="یوم آزادی کی تعطیل">Independence Day Holiday</td>
+      <td class="i18n" data-en="14th August" data-ur="14 اگست">14th August</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Final Term Exam" data-ur="فائنل ٹرم امتحان">Final Term Exam</td>
+      <td class="i18n" data-en="21st December – 5th January" data-ur="21 دسمبر – 5 جنوری">21st December – 5th January</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Result Day &amp; Award Distribution" data-ur="نتیجہ اور انعامات کی تقسیم کا دن">Result Day &amp; Award Distribution</td>
+      <td class="i18n" data-en="Mid-January" data-ur="جنوری کے وسط میں">Mid-January</td>
+    </tr>
+    <tr>
+      <td class="i18n" data-en="Winter Vacation (Session Ends)" data-ur="موسم سرما کی تعطیلات (سیشن کا اختتام)">Winter Vacation (Session Ends)</td>
+      <td class="i18n" data-en="Mid-January onward" data-ur="جنوری کے وسط سے آگے">Mid-January onward</td>
+    </tr>
+  </table>
+  <p class="cal-note i18n" data-en="Note: These dates are approximate and may be adjusted by school administration. Eid holidays depend on the Islamic lunar calendar. Please contact the school office to confirm exact dates." data-ur="نوٹ: یہ تاریخیں تخمینی ہیں اور سکول انتظامیہ کی طرف سے تبدیل کی جا سکتی ہیں۔ عید کی تعطیلات اسلامی قمری کیلنڈر پر منحصر ہیں۔ درست تاریخوں کی تصدیق کے لیے سکول آفس سے رابطہ کریں۔">Note: These dates are approximate and may be adjusted by school administration. Eid holidays depend on the Islamic lunar calendar. Please contact the school office to confirm exact dates.</p>
 </section>
 
 <section class="section" style="background:#fff;" id="gallery">
