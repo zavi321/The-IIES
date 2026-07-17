@@ -244,6 +244,22 @@
   body[dir="rtl"] .cal-table th, body[dir="rtl"] .cal-table td{text-align:right;}
   .cal-note{font-size:12.5px; color:var(--mist); text-align:center; margin-top:14px; max-width:700px; margin-left:auto; margin-right:auto;}
 
+  .calendar-cards{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:22px;
+    max-width:1100px; margin:0 auto;
+  }
+  .calendar-card{
+    background:#fff; border:1px solid var(--line); border-radius:8px;
+    padding:24px 22px; text-align:center; box-shadow:0 1px 3px rgba(16,25,63,0.06);
+    transition:transform .15s ease;
+  }
+  .calendar-card:hover{transform:translateY(-3px);}
+  .calendar-card h3{
+    font-family:'Amiri', serif; color:var(--navy); font-size:17px; font-weight:700; margin-bottom:10px;
+  }
+  .calendar-card p{font-size:13.5px; color:var(--mist); line-height:1.7; margin:0;}
+  .calendar-card p strong{display:block; color:var(--gold); font-size:13px; letter-spacing:.03em; margin-bottom:4px;}
+
   /* ---------- admission info cards ---------- */
   .info-grid{
     display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:26px;
@@ -315,6 +331,7 @@
     <a href="#about"><span class="i18n" data-en="About" data-ur="تعارف">About</span></a>
     <a href="#history"><span class="i18n" data-en="History" data-ur="تاریخ">History</span></a>
     <a href="#academics"><span class="i18n" data-en="Academics" data-ur="تعلیمی نظام">Academics</span></a>
+    <a href="#calendar"><span class="i18n" data-en="Calendar" data-ur="کیلنڈر">Calendar</span></a>
     <a href="#leadership"><span class="i18n" data-en="Leadership" data-ur="قیادت">Leadership</span></a>
     <a href="#gallery"><span class="i18n" data-en="Gallery" data-ur="گیلری">Gallery</span></a>
     <a href="#contact"><span class="i18n" data-en="Contact" data-ur="رابطہ">Contact</span></a>
@@ -545,6 +562,102 @@
       </table>
     </div>
   </div>
+</section>
+
+<section class="section" style="background:var(--paper);" id="calendar">
+  <div class="section-head">
+    <div class="kicker i18n" data-en="Session 2026–27" data-ur="سیشن 2026–27">Session 2026–27</div>
+    <h2 class="i18n" data-en="Academic Calendar" data-ur="تعلیمی کیلنڈر">Academic Calendar</h2>
+  </div>
+
+  <div class="calendar-cards">
+
+    <div class="calendar-card">
+      <h3>📚 <span class="i18n" data-en="February – March" data-ur="فروری – مارچ">February – March</span></h3>
+      <p><strong>10 Feb – 15 Mar</strong></p>
+      <p class="i18n" data-en="New Academic Year Begins" data-ur="نئے تعلیمی سال کا آغاز">New Academic Year Begins</p>
+      <p class="i18n" data-en="Regular Classes" data-ur="باقاعدہ کلاسز">Regular Classes</p>
+      <p class="i18n" data-en="First Teaching Term" data-ur="پہلی تدریسی مدت">First Teaching Term</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📚 <span class="i18n" data-en="March – April" data-ur="مارچ – اپریل">March – April</span></h3>
+      <p><strong>16 Mar – 15 Apr</strong></p>
+      <p class="i18n" data-en="Teaching Activities" data-ur="تدریسی سرگرمیاں">Teaching Activities</p>
+      <p class="i18n" data-en="Monthly Review" data-ur="ماہانہ جائزہ">Monthly Review</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📚 <span class="i18n" data-en="April – May" data-ur="اپریل – مئی">April – May</span></h3>
+      <p><strong>16 Apr – 15 May</strong></p>
+      <p class="i18n" data-en="Teaching Activities" data-ur="تدریسی سرگرمیاں">Teaching Activities</p>
+      <p class="i18n" data-en="Class Tests" data-ur="کلاس ٹیسٹ">Class Tests</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📝 <span class="i18n" data-en="May – June" data-ur="مئی – جون">May – June</span></h3>
+      <p><strong>16 May – 20 Jun</strong></p>
+      <p class="i18n" data-en="Syllabus Completion (Phase 1)" data-ur="سلیبس کی تکمیل (پہلا مرحلہ)">Syllabus Completion (Phase 1)</p>
+      <p class="i18n" data-en="Mid-Term Examination" data-ur="وسط مدتی امتحان">Mid-Term Examination</p>
+      <p class="i18n" data-en="Result Announcement" data-ur="نتائج کا اعلان">Result Announcement</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>☀️ <span class="i18n" data-en="Summer Vacation" data-ur="موسم گرما کی چھٹیاں">Summer Vacation</span></h3>
+      <p><strong>21 June – 31 July</strong></p>
+      <p class="i18n" data-en="School Closed" data-ur="سکول بند">School Closed</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📚 <span class="i18n" data-en="August" data-ur="اگست">August</span></h3>
+      <p class="i18n" data-en="School Reopens" data-ur="سکول دوبارہ کھلنا">School Reopens</p>
+      <p class="i18n" data-en="New Session's Second Phase" data-ur="نئے سیشن کا دوسرا مرحلہ">New Session's Second Phase</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📚 <span class="i18n" data-en="September" data-ur="ستمبر">September</span></h3>
+      <p class="i18n" data-en="Regular Teaching" data-ur="باقاعدہ تدریس">Regular Teaching</p>
+      <p class="i18n" data-en="Monthly Tests" data-ur="ماہانہ ٹیسٹ">Monthly Tests</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📚 <span class="i18n" data-en="October" data-ur="اکتوبر">October</span></h3>
+      <p class="i18n" data-en="Syllabus Completion" data-ur="سلیبس کی تکمیل">Syllabus Completion</p>
+      <p class="i18n" data-en="Exam Preparation" data-ur="امتحانی تیاری">Exam Preparation</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>📝 <span class="i18n" data-en="November – Mid December" data-ur="نومبر – وسط دسمبر">November – Mid December</span></h3>
+      <p class="i18n" data-en="Annual Examinations" data-ur="سالانہ امتحانات">Annual Examinations</p>
+      <p class="i18n" data-en="Annual Examination" data-ur="Annual Examination">Annual Examination</p>
+      <p class="i18n" data-en="Result Announcement" data-ur="نتائج کا اعلان">Result Announcement</p>
+    </div>
+
+    <div class="calendar-card">
+      <h3>❄️ <span class="i18n" data-en="Winter Vacation" data-ur="موسم سرما کی چھٹیاں">Winter Vacation</span></h3>
+      <p><strong>16 December 2026 – January 2027</strong></p>
+      <p class="i18n" data-en="School Closed" data-ur="سکول بند">School Closed</p>
+    </div>
+
+  </div>
+
+  <div class="section-head" style="margin-top:56px;">
+    <div class="kicker i18n" data-en="Government Announced" data-ur="حکومتی اعلان کردہ">Government Announced</div>
+    <h2 class="i18n" data-en="Public Holidays" data-ur="اہم تعطیلات">Public Holidays</h2>
+  </div>
+  <table class="cal-table">
+    <tr><th class="i18n" data-en="Holiday" data-ur="تعطیل">Holiday</th><th class="i18n" data-en="Date" data-ur="تاریخ">Date</th></tr>
+    <tr><td class="i18n" data-en="Kashmir Day" data-ur="یومِ کشمیر">Kashmir Day</td><td class="i18n" data-en="5 February" data-ur="5 فروری">5 February</td></tr>
+    <tr><td class="i18n" data-en="Pakistan Day" data-ur="یومِ پاکستان">Pakistan Day</td><td class="i18n" data-en="23 March" data-ur="23 مارچ">23 March</td></tr>
+    <tr><td class="i18n" data-en="Eid-ul-Fitr" data-ur="عیدالفطر">Eid-ul-Fitr</td><td class="i18n" data-en="As per government announcement" data-ur="حکومتی اعلان کے مطابق">As per government announcement</td></tr>
+    <tr><td class="i18n" data-en="Labour Day" data-ur="یومِ مزدور">Labour Day</td><td class="i18n" data-en="1 May" data-ur="1 مئی">1 May</td></tr>
+    <tr><td class="i18n" data-en="Eid-ul-Adha" data-ur="عیدالاضحیٰ">Eid-ul-Adha</td><td class="i18n" data-en="As per government announcement" data-ur="حکومتی اعلان کے مطابق">As per government announcement</td></tr>
+    <tr><td class="i18n" data-en="9th &amp; 10th Muharram" data-ur="9 اور 10 محرم">9th &amp; 10th Muharram</td><td class="i18n" data-en="As per Islamic calendar" data-ur="اسلامی کیلنڈر کے مطابق">As per Islamic calendar</td></tr>
+    <tr><td class="i18n" data-en="Independence Day" data-ur="یومِ آزادی">Independence Day</td><td class="i18n" data-en="14 August" data-ur="14 اگست">14 August</td></tr>
+    <tr><td class="i18n" data-en="Eid Milad-un-Nabi ﷺ" data-ur="عید میلاد النبی ﷺ">Eid Milad-un-Nabi ﷺ</td><td class="i18n" data-en="As per government announcement" data-ur="حکومتی اعلان کے مطابق">As per government announcement</td></tr>
+    <tr><td class="i18n" data-en="Allama Iqbal Day" data-ur="علامہ اقبال ڈے">Allama Iqbal Day</td><td class="i18n" data-en="9 November (if observed)" data-ur="9 نومبر (اگر نافذ ہو)">9 November (if observed)</td></tr>
+    <tr><td class="i18n" data-en="Quaid-e-Azam Day / Christmas" data-ur="یومِ قائداعظم / کرسمس">Quaid-e-Azam Day / Christmas</td><td class="i18n" data-en="25 December" data-ur="25 دسمبر">25 December</td></tr>
+  </table>
 </section>
 
 <section class="section" style="background:#fff;" id="gallery">
