@@ -50,12 +50,17 @@
 
   /* ---------- nav ---------- */
   nav{
-    display:flex; justify-content:space-between; align-items:center;
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center;
     padding:16px 6vw;
     position:sticky; top:0; z-index:60;
     background:rgba(250,246,237,0.94);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
+  }
+  .nav-actions{
+    display:flex; align-items:center; gap:8px;
+    flex-basis:100%; justify-content:center;
+    margin-top:12px;
   }
   .brand{display:flex; align-items:center; gap:12px;}
   .brand img{width:42px; height:42px; border-radius:50%;}
@@ -270,9 +275,11 @@
     <a href="#gallery"><span class="i18n" data-en="Gallery" data-ur="گیلری">Gallery</span></a>
     <a href="#contact"><span class="i18n" data-en="Contact" data-ur="رابطہ">Contact</span></a>
   </div>
-  <a href="#contact" class="nav-cta"><span class="i18n" data-en="Contacts" data-ur="رابطہ کریں">Contacts</span></a>
-  <button id="notifyBtn" onclick="window.OneSignal && OneSignal.Notifications.requestPermission()" style="margin-left:8px; background:transparent; border:1px solid var(--navy); color:var(--navy); padding:9px 14px; border-radius:3px; font-size:13px; font-weight:600; cursor:pointer;"><span class="i18n" data-en="🔔 Notify Me" data-ur="🔔 نوٹیفائی کریں">🔔 Notify Me</span></button>
-  <button id="langToggle" onclick="toggleLanguage()" style="margin-left:8px; background:var(--gold); border:none; color:var(--navy); padding:9px 14px; border-radius:3px; font-size:13px; font-weight:700; cursor:pointer;">اردو</button>
+  <div class="nav-actions">
+    <a href="#contact" class="nav-cta"><span class="i18n" data-en="Contacts" data-ur="رابطہ کریں">Contacts</span></a>
+    <button id="notifyBtn" onclick="window.OneSignal && OneSignal.Notifications.requestPermission()" style="background:transparent; border:1px solid var(--navy); color:var(--navy); padding:9px 14px; border-radius:3px; font-size:13px; font-weight:600; cursor:pointer;"><span class="i18n" data-en="🔔 Notify Me" data-ur="🔔 نوٹیفائی کریں">🔔 Notify Me</span></button>
+    <button id="langToggle" onclick="toggleLanguage()" style="background:var(--gold); border:none; color:var(--navy); padding:9px 14px; border-radius:3px; font-size:13px; font-weight:700; cursor:pointer;">اردو</button>
+  </div>
 </nav>
 
 <section class="hero">
