@@ -374,7 +374,7 @@
       const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(cleanMsg)}`;
       return `<div style="padding:10px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">
         <span style="font-size:13.5px;">${s.full_name} <span style="color:var(--mist); font-size:11.5px;">(${s.contact_number})</span></span>
-        <a href="${waLink}" target="_blank" style="background:#25D366; color:#fff; padding:8px 14px; border-radius:4px; text-decoration:none; font-size:13px; font-weight:700;">Send WhatsApp</a>
+        <a href="${waLink}" target="_blank" onclick="this.style.background='#1b1b1b'; this.style.color='#fff'; this.textContent='Sent ✓';" style="background:#25D366; color:#fff; padding:8px 14px; border-radius:4px; text-decoration:none; font-size:13px; font-weight:700;">Send WhatsApp</a>
       </div>`;
     }).join('');
   };
