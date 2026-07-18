@@ -74,6 +74,10 @@
     background:var(--navy); color:var(--paper);
     padding:9px 20px; border-radius:3px; font-size:13px; font-weight:600;
   }
+  .nav-lang-btn{
+    background:var(--gold); color:var(--navy); border:none; cursor:pointer;
+    padding:9px 20px; border-radius:3px; font-size:13px; font-weight:600;
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -111,6 +115,7 @@
   .btn:hover{transform:translateY(-2px);}
   .btn-gold{background:var(--gold); color:var(--navy);}
   .btn-outline{border:1px solid rgba(250,246,237,0.4); color:var(--paper);}
+  .btn-outline-light{border:1px solid var(--line); color:var(--navy); background:transparent;}
 
   .arch-divider{display:block; width:100%; height:auto;}
 
@@ -469,7 +474,7 @@
   </div>
   <div class="nav-actions">
     <a href="#contact" class="nav-cta"><span class="i18n" data-en="Contacts" data-ur="رابطہ کریں">Contacts</span></a>
-    <button id="langToggle" onclick="toggleLanguage()" style="background:var(--gold); border:none; color:var(--navy); padding:9px 14px; border-radius:3px; font-size:13px; font-weight:700; cursor:pointer;">اردو</button>
+    <button id="langToggle" onclick="toggleLanguage()" class="nav-lang-btn">اردو</button>
   </div>
 </nav>
 
@@ -963,7 +968,7 @@
     <iframe src="https://www.google.com/maps?q=The+Iqra+Islamic+Educational+System+Puran+Aloch&ll=34.7437075,72.6849352&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen title="IIES Location Map"></iframe>
   </div>
   <div style="text-align:center; margin-top:16px;">
-    <a href="https://maps.google.com/?cid=1251130906772228282" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:var(--line); color:var(--navy); display:inline-flex;"><span class="i18n" data-en="📍 Get Directions" data-ur="📍 راستہ معلوم کریں">📍 Get Directions</span></a>
+    <a href="https://maps.google.com/?cid=1251130906772228282" target="_blank" rel="noopener" class="btn btn-outline-light"><span class="i18n" data-en="📍 Get Directions" data-ur="📍 راستہ معلوم کریں">📍 Get Directions</span></a>
   </div>
 </section>
 
@@ -995,7 +1000,7 @@
         <label class="i18n" data-en="Parent Number" data-ur="والدین کا نمبر">Parent Number</label>
         <input type="tel" id="recParentNumber" placeholder="03XX-XXXXXXX">
       </div>
-      <button class="btn btn-gold" onclick="saveRecord()" style="border:none; cursor:pointer; padding:10px 20px;"><span class="i18n" data-en="💾 Save" data-ur="💾 محفوظ کریں">💾 Save</span></button>
+      <button class="btn btn-gold" onclick="saveRecord()" style="border:none; cursor:pointer;"><span class="i18n" data-en="💾 Save" data-ur="💾 محفوظ کریں">💾 Save</span></button>
     </div>
 
     <div class="records-table-wrap">
@@ -1011,8 +1016,27 @@
         <tbody id="recordsBody"></tbody>
       </table>
     </div>
+
+    <div style="max-width:600px; margin:34px auto 0; border:1px solid var(--line); border-radius:10px; overflow:hidden;">
+      <div style="background:var(--navy); color:#fff; padding:14px 18px; font-size:14px; font-weight:600;">
+        <span class="i18n" data-en="General Message" data-ur="عمومی پیغام">General Message</span>
+      </div>
+      <div id="msgChatArea" style="background:#f0f0f0; min-height:200px; max-height:340px; overflow-y:auto; padding:16px;">
+        <p id="msgChatEmpty" style="color:var(--mist); font-size:13px; text-align:center; margin-top:60px;">
+          <span class="i18n" data-en="Type a message below, use @name to mention students." data-ur="نیچے پیغام لکھیں، طلبہ کو @نام سے مینشن کریں۔">Type a message below, use @name to mention students.</span>
+        </p>
+      </div>
+      <div style="position:relative; padding:10px 14px; background:#fff; border-top:1px solid var(--line);">
+        <div id="msgMentionSuggestions" style="display:none; position:absolute; bottom:64px; left:14px; right:14px; background:#fff; border:1px solid var(--line); border-radius:8px; max-height:160px; overflow-y:auto; box-shadow:0 -2px 10px rgba(0,0,0,0.08); z-index:5;"></div>
+        <div style="display:flex; align-items:center; gap:8px; background:#f0f0f0; border-radius:22px; padding:6px 8px 6px 16px;">
+          <input id="msgChatText" type="text" placeholder="Message likhein... @naam" style="flex:1; border:none; background:transparent; outline:none; font-size:14px; padding:8px 0;">
+          <button id="msgChatSendBtn" style="background:#25D366; border:none; width:38px; height:38px; border-radius:50%; color:#fff; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;">➤</button>
+        </div>
+      </div>
+    </div>
+
     <div style="text-align:center; margin-top:20px;">
-      <button onclick="lockRecords()" class="btn btn-outline" style="border-color:var(--line); color:var(--navy); cursor:pointer;"><span class="i18n" data-en="🔒 Lock" data-ur="🔒 بند کریں">🔒 Lock</span></button>
+      <button onclick="lockRecords()" class="btn btn-outline-light" style="cursor:pointer;"><span class="i18n" data-en="🔒 Lock" data-ur="🔒 بند کریں">🔒 Lock</span></button>
     </div>
   </div>
 </section>
@@ -1132,6 +1156,94 @@
     div.textContent = str;
     return div.innerHTML;
   }
+
+  // ---------- General Message (WhatsApp via @mentions) ----------
+  function normalizeParentPhone(parent){
+    var digits = (parent || '').replace(/\D/g, '');
+    if (digits.length === 11 && digits.startsWith('0')) digits = '92' + digits.substring(1);
+    else if (!digits.startsWith('92')) digits = '92' + digits.replace(/^0+/, '');
+    return digits;
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var msgChatText = document.getElementById('msgChatText');
+    var msgSuggestionBox = document.getElementById('msgMentionSuggestions');
+    if (!msgChatText) return;
+
+    msgChatText.addEventListener('input', function(){
+      var text = msgChatText.value;
+      var cursor = msgChatText.selectionStart;
+      var beforeCursor = text.slice(0, cursor);
+      var match = beforeCursor.match(/@([^@\n]*)$/);
+      if (!match) { msgSuggestionBox.style.display = 'none'; return; }
+      var query = match[1].toLowerCase();
+      var records = getRecords();
+      var matches = records.filter(function(r){ return r.name.toLowerCase().includes(query); });
+      if (matches.length === 0) { msgSuggestionBox.style.display = 'none'; return; }
+      msgSuggestionBox.innerHTML = matches.slice(0, 8).map(function(r){
+        return '<div class="mention-option" data-name="' + escapeHtml(r.name) + '" style="padding:8px 12px; cursor:pointer; border-bottom:1px solid var(--line); font-size:13.5px;">' + escapeHtml(r.name) + ' <span style="color:var(--mist); font-size:11.5px;">(' + escapeHtml(r.cls) + ')</span></div>';
+      }).join('');
+      msgSuggestionBox.style.display = 'block';
+      msgSuggestionBox.querySelectorAll('.mention-option').forEach(function(opt){
+        opt.onclick = function(){
+          var name = opt.dataset.name;
+          var newText = text.slice(0, cursor - match[0].length) + '@' + name + ' ' + text.slice(cursor);
+          msgChatText.value = newText;
+          msgSuggestionBox.style.display = 'none';
+          msgChatText.focus();
+        };
+      });
+    });
+
+    msgChatText.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' && msgSuggestionBox.style.display !== 'block') {
+        e.preventDefault();
+        document.getElementById('msgChatSendBtn').click();
+      }
+    });
+
+    document.getElementById('msgChatSendBtn').onclick = function(){
+      var text = msgChatText.value.trim();
+      if (!text) return;
+      var records = getRecords();
+      var mentioned = records.filter(function(r){ return text.includes('@' + r.name); });
+      var chatArea = document.getElementById('msgChatArea');
+      var emptyMsg = document.getElementById('msgChatEmpty');
+      if (emptyMsg) emptyMsg.remove();
+
+      if (mentioned.length === 0) {
+        chatArea.innerHTML += '<p style="color:#b02a2a; font-size:13px; text-align:center;">Koi student mention nahi hua — @naam likh kar mention karo.</p>';
+        chatArea.scrollTop = chatArea.scrollHeight;
+        return;
+      }
+
+      var now = new Date();
+      var timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      mentioned.forEach(function(r){
+        var digits = normalizeParentPhone(r.parent);
+        var cleanMsg = text.split('@' + r.name).join(r.name);
+        var bubbleId = 'msgbubble_' + now.getTime() + '_' + Math.floor(Math.random()*10000);
+        var statusHtml;
+        if (!digits) {
+          statusHtml = '<span style="color:#b02a2a;">Koi contact number nahi hai</span>';
+        } else {
+          var waLink = 'https://wa.me/' + digits + '?text=' + encodeURIComponent(cleanMsg);
+          statusHtml = '<a id="' + bubbleId + '" href="' + waLink + '" target="_blank" onclick="document.getElementById(\'' + bubbleId + '\').textContent=\'Sent ✓\'; document.getElementById(\'' + bubbleId + '\').style.color=\'#1b1b1b\'; document.getElementById(\'' + bubbleId + '\').style.fontWeight=\'700\';" style="color:#25D366; font-weight:600; text-decoration:none;">Tap to send ➤</a>';
+        }
+        chatArea.innerHTML += '<div style="max-width:82%; margin-left:auto; margin-bottom:14px;">' +
+          '<div style="background:#dcf8c6; border-radius:14px 14px 2px 14px; padding:10px 14px; font-size:14px; color:#1b1b1b;">' +
+          '<div style="font-size:11.5px; color:var(--navy); font-weight:700; margin-bottom:2px;">To: ' + escapeHtml(r.name) + '</div>' +
+          escapeHtml(cleanMsg) +
+          '</div>' +
+          '<div style="text-align:right; font-size:11px; color:var(--mist); margin-top:3px;">' + timeStr + ' • WhatsApp • ' + statusHtml + '</div>' +
+          '</div>';
+      });
+
+      chatArea.scrollTop = chatArea.scrollHeight;
+      msgChatText.value = '';
+    };
+  });
 
   // ---------- Welcome splash screen ----------
   function dismissSplash(){
