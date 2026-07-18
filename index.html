@@ -327,6 +327,21 @@
   }
   .rec-icon:hover{background:var(--paper);}
 
+  /* ---------- welcome splash screen ---------- */
+  #splashScreen{
+    position:fixed; inset:0; z-index:9999;
+    background:#0d1a4a;
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity .6s ease;
+    cursor:pointer;
+  }
+  #splashScreen img{
+    max-width:92vw; max-height:92vh; width:auto; height:auto;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4); border-radius:6px;
+  }
+  #splashScreen.fade-out{opacity:0; pointer-events:none;}
+  body.splash-active{overflow:hidden;}
+
   /* ---------- map ---------- */
   .map-wrap{
     max-width:1000px; margin:28px auto 0; border-radius:8px; overflow:hidden;
@@ -394,7 +409,12 @@
   body[dir="rtl"] ul{padding-right:18px; padding-left:0;}
 </style>
 </head>
-<body>
+<body class="splash-active">
+
+<div id="splashScreen" onclick="dismissSplash()">
+  <img src="welcome-banner.jpg" alt="Welcome to The Iqra Islamic Educational System">
+</div>
+
 
 <nav>
   <div class="brand">
@@ -1025,6 +1045,16 @@
     div.textContent = str;
     return div.innerHTML;
   }
+
+  // ---------- Welcome splash screen ----------
+  function dismissSplash(){
+    var splash = document.getElementById('splashScreen');
+    if (!splash || splash.classList.contains('fade-out')) return;
+    splash.classList.add('fade-out');
+    document.body.classList.remove('splash-active');
+    setTimeout(function(){ splash.style.display = 'none'; }, 650);
+  }
+  setTimeout(dismissSplash, 2500);
 </script>
 
 <!-- ============================================================
