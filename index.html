@@ -688,28 +688,6 @@
     </div>
   </div>
 
-  <div class="section-head" style="margin-top:56px;">
-    <div class="kicker i18n" data-en="Our Leadership" data-ur="ہماری قیادت">Our Leadership</div>
-    <h2 class="i18n" data-en="School Owners" data-ur="سکول کے مالکان">School Owners</h2>
-  </div>
-  <div class="lead-grid">
-    <div class="lead-card">
-      <div class="arch-photo"><img src="owner1.jpg" alt="Sir Subhan Ullah"></div>
-      <h3>Sir Subhan Ullah</h3>
-      <div class="role i18n" data-en="Owner" data-ur="مالک">Owner</div>
-    </div>
-    <div class="lead-card">
-      <div class="arch-photo"><img src="owner2.jpg" alt="Sir Imdad Ullah Momin"></div>
-      <h3>Sir Imdad Ullah Momin</h3>
-      <div class="role">Owner</div>
-    </div>
-    <div class="lead-card">
-      <div class="arch-photo"><img src="owner3.jpg" alt="Sir Muhammad Hussain"></div>
-      <h3>Sir Muhammad Hussain</h3>
-      <div class="role">Owner</div>
-    </div>
-  </div>
-
   <div class="message-card" style="margin-top:40px;">
     <div style="text-align:center; margin-bottom:20px;">
       <div style="font-family:'Amiri', serif; color:var(--gold); font-size:13px; text-transform:uppercase; letter-spacing:.08em;">Message from the Director</div>
@@ -734,6 +712,28 @@
   </div>
 
   <div class="section-head" style="margin-top:56px;">
+    <div class="kicker i18n" data-en="Our Leadership" data-ur="ہماری قیادت">Our Leadership</div>
+    <h2 class="i18n" data-en="School Owners" data-ur="سکول کے مالکان">School Owners</h2>
+  </div>
+  <div class="lead-grid">
+    <div class="lead-card">
+      <div class="arch-photo"><img src="owner1.jpg" alt="Engr. Subhan Ullah"></div>
+      <h3>Engr. Subhan Ullah</h3>
+      <div class="role i18n" data-en="Owner" data-ur="مالک">Owner</div>
+    </div>
+    <div class="lead-card">
+      <div class="arch-photo"><img src="owner2.jpg" alt="Engr. Imdad Ullah Momin"></div>
+      <h3>Engr. Imdad Ullah Momin</h3>
+      <div class="role">Owner</div>
+    </div>
+    <div class="lead-card">
+      <div class="arch-photo"><img src="owner3.jpg" alt="Maulana Muhammad Hussain"></div>
+      <h3>Maulana Muhammad Hussain</h3>
+      <div class="role">Owner</div>
+    </div>
+  </div>
+
+  <div class="section-head" style="margin-top:56px;">
     <div class="kicker i18n" data-en="Meet the Team" data-ur="ٹیم سے ملیں">Meet the Team</div>
     <h2 class="i18n" data-en="Our Teaching Staff" data-ur="ٹیچنگ سٹاف">Our Teaching Staff</h2>
   </div>
@@ -742,7 +742,7 @@
     <div class="staff-card"><img src="staff-nadeem-ullah.jpg" alt="Nadeem Ullah - Vice Principal"></div>
     <div class="staff-card"><img src="staff-subhan-ullah.jpg" alt="Subhan Ullah - Director"></div>
     <div class="staff-card"><img src="staff-imdad-ullah-momin.jpg" alt="Imdad Ullah Momin - Director"></div>
-    <div class="staff-card"><img src="staff-muhammad-husain.jpg" alt="Muhammad Husain - Director / Teacher"></div>
+    <div class="staff-card"><img src="staff-muhammad-husain.jpg" alt="Maulana Muhammad Husain - Director / Teacher"></div>
     <div class="staff-card"><img src="staff-muhammad-arshad.jpg" alt="Muhammad Arshad - Accountant and Finance"></div>
     <div class="staff-card"><img src="staff-azhar-uddin.jpg" alt="Azhar Uddin - Chief Protector"></div>
     <div class="staff-card"><img src="staff-arshad-ali.jpg" alt="Arshad Ali - Science Teacher"></div>
@@ -753,6 +753,43 @@
     <div class="staff-card"><img src="staff-muhammad-sudais.jpg" alt="Muhammad Sudais - Teacher (PST)"></div>
   </div>
 </section>
+
+<section class="section" style="background:var(--paper);" id="books">
+  <div class="section-head">
+    <div class="kicker i18n" data-en="Digital Library" data-ur="ڈیجیٹل لائبریری">Digital Library</div>
+    <h2 class="i18n" data-en="Books &amp; Study Material" data-ur="کتابیں اور تعلیمی مواد">Books &amp; Study Material</h2>
+  </div>
+  <div class="books-grid" id="booksGrid">
+    <!-- Cards load automatically from books/books.json — add a new book by adding one entry to that file, no HTML edits needed -->
+  </div>
+  <p style="text-align:center; font-size:12.5px; color:var(--mist); margin-top:22px;">
+    <span class="i18n" data-en="More books will be added soon." data-ur="جلد مزید کتابیں شامل کی جائیں گی۔">More books will be added soon.</span>
+  </p>
+</section>
+
+<script>
+  fetch('books/books.json')
+    .then(function(res){ return res.json(); })
+    .then(function(books){
+      var grid = document.getElementById('booksGrid');
+      if (!grid) return;
+      grid.innerHTML = books.map(function(b){
+        return '<div class="book-card">' +
+          '<div class="book-icon">' + b.icon + '</div>' +
+          '<div class="book-title">' + b.title + '</div>' +
+          '<div class="book-class">' + b.class + '</div>' +
+          '<a href="' + b.file + '" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">' +
+            '<span class="i18n" data-en="⬇ Download" data-ur="⬇ ڈاؤن لوڈ کریں">⬇ Download</span>' +
+          '</a>' +
+        '</div>';
+      }).join('');
+      if (typeof setLanguage === 'function') {
+        var lang = document.body.getAttribute('dir') === 'rtl' ? 'ur' : 'en';
+        setLanguage(lang);
+      }
+    })
+    .catch(function(err){ console.error('Could not load books list:', err); });
+</script>
 
 <section class="section" style="background:var(--paper);" id="admission-info">
   <div class="section-head">
@@ -980,43 +1017,6 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--paper);" id="books">
-  <div class="section-head">
-    <div class="kicker i18n" data-en="Digital Library" data-ur="ڈیجیٹل لائبریری">Digital Library</div>
-    <h2 class="i18n" data-en="Books &amp; Study Material" data-ur="کتابیں اور تعلیمی مواد">Books &amp; Study Material</h2>
-  </div>
-  <div class="books-grid">
-    <!-- Sample entry — copy this block for each book, update title/class/file name -->
-    <div class="book-card">
-      <div class="book-icon">📘</div>
-      <div class="book-title">English Grammar</div>
-      <div class="book-class">Grade 3</div>
-      <a href="books/english-grammar-grade3.pdf" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">
-        <span class="i18n" data-en="⬇ Download" data-ur="⬇ ڈاؤن لوڈ کریں">⬇ Download</span>
-      </a>
-    </div>
-    <div class="book-card">
-      <div class="book-icon">📗</div>
-      <div class="book-title">English Keybook</div>
-      <div class="book-class">Grade 5</div>
-      <a href="books/english-five-keybook.pdf" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">
-        <span class="i18n" data-en="⬇ Download" data-ur="⬇ ڈاؤن لوڈ کریں">⬇ Download</span>
-      </a>
-    </div>
-    <div class="book-card">
-      <div class="book-icon">📗</div>
-      <div class="book-title">English Keybook</div>
-      <div class="book-class">Grade 2</div>
-      <a href="books/english-two-keybook.pdf" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">
-        <span class="i18n" data-en="⬇ Download" data-ur="⬇ ڈاؤن لوڈ کریں">⬇ Download</span>
-      </a>
-    </div>
-  </div>
-  <p style="text-align:center; font-size:12.5px; color:var(--mist); margin-top:22px;">
-    <span class="i18n" data-en="More books will be added soon." data-ur="جلد مزید کتابیں شامل کی جائیں گی۔">More books will be added soon.</span>
-  </p>
-</section>
-
 <section class="section" style="background:#fff;">
   <div class="two-col">
     <div class="block">
@@ -1038,13 +1038,13 @@
   <div class="contact-card">
     <div class="row"><strong class="i18n" data-en="School" data-ur="سکول">School</strong> — The Iqra Islamic Educational System (IIES)</div>
     <div class="row"><strong class="i18n" data-en="Location" data-ur="مقام">Location</strong> — Aloch Puran, District Shangla, KPK, Pakistan</div>
-    <div class="row"><strong class="i18n" data-en="Owners" data-ur="مالکان">Owners</strong> — Sir Subhan Ullah &amp; Sir Imdad Ullah Momin</div>
+    <div class="row"><strong class="i18n" data-en="Owners" data-ur="مالکان">Owners</strong> — Engr. Subhan Ullah &amp; Engr. Imdad Ullah Momin</div>
     <div class="row"><strong class="i18n" data-en="Email" data-ur="ای میل">Email</strong> — <a href="mailto:imdadullahmomen@gmail.com" style="color:var(--gold);">imdadullahmomen@gmail.com</a> · <a href="mailto:Khan.dg2020@gmail.com" style="color:var(--gold);">Khan.dg2020@gmail.com</a></div>
     <div class="contact-cta-row">
       <a href="admission.html" class="btn btn-gold"><span class="i18n" data-en="📝 Fill Admission Form" data-ur="📝 داخلہ فارم پُر کریں">📝 Fill Admission Form</span></a>
       <a href="prospectus.pdf" download class="btn btn-outline"><span class="i18n" data-en="📥 Download Prospectus" data-ur="📥 پراسپیکٹس ڈاؤن لوڈ کریں">📥 Download Prospectus</span></a>
       <a href="https://wa.me/923459818813" class="btn btn-gold">💬 WhatsApp — Sir Imdad Ullah</a>
-      <a href="https://wa.me/923440929329" class="btn btn-gold">💬 WhatsApp — Sir Subhan Ullah</a>
+      <a href="https://wa.me/923440929329" class="btn btn-gold">💬 WhatsApp — Engr. Subhan Ullah</a>
       <a href="https://wa.me/923412565659" class="btn btn-gold">💬 WhatsApp — Sir Nadeem Ullah</a>
       <a href="mailto:imdadullahmomen@gmail.com" class="btn btn-outline"><span class="i18n" data-en="✉ Email Us" data-ur="✉ ای میل کریں">✉ Email Us</span></a>
       <a href="https://www.facebook.com/profile.php?id=100047533705911" target="_blank" rel="noopener" class="btn btn-outline"><span class="i18n" data-en="📘 Follow on Facebook" data-ur="📘 فیس بک پر فالو کریں">📘 Follow on Facebook</span></a>
