@@ -1,0 +1,14 @@
+[
+  {
+    "title": "English Grammar",
+    "class": "Grade 3",
+    "icon": "📘",
+    "file": "books/english-grammar-grade3.pdf"
+  },
+  {
+    "title": "English Keybook",
+    "class": "Grade 5",
+    "icon": "📗",
+    "file": "books/english-five-keybook.pdf"
+  }
+]
