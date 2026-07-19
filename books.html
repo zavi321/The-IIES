@@ -8,9 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
   :root{
     --navy:#10193F;
     --royal:#1B2C6B;
@@ -447,7 +444,6 @@
   body[dir="rtl"] .contact-cta-row{flex-direction:row-reverse;}
   body[dir="rtl"] ul{padding-right:18px; padding-left:0;}
 </style>
-</style>
 </head>
 <body>
 
@@ -469,24 +465,37 @@
     <div class="kicker">Digital Library</div>
     <h2>Books &amp; Study Material</h2>
   </div>
-  <div class="books-grid">
-    <div class="book-card">
-      <div class="book-icon">📘</div>
-      <div class="book-title">English Grammar</div>
-      <div class="book-class">Grade 3</div>
-      <a href="books/english-grammar-grade3.pdf" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">⬇ Download</a>
-    </div>
-    <div class="book-card">
-      <div class="book-icon">📗</div>
-      <div class="book-title">English Keybook</div>
-      <div class="book-class">Grade 5</div>
-      <a href="books/english-five-keybook.pdf" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">⬇ Download</a>
-    </div>
-  </div>
-  <p style="text-align:center; font-size:12.5px; color:var(--mist); margin-top:22px;">
-    More books will be added soon.
+  <div class="books-grid" id="booksGrid"></div>
+  <p style="text-align:center; font-size:12.5px; color:var(--mist); margin-top:22px;" id="booksEmptyMsg">
+    Loading books…
   </p>
 </section>
+
+<script>
+  fetch('books.json')
+    .then(res => res.json())
+    .then(books => {
+      const grid = document.getElementById('booksGrid');
+      const msg = document.getElementById('booksEmptyMsg');
+      if (!books || books.length === 0){
+        msg.textContent = 'More books will be added soon.';
+        return;
+      }
+      grid.innerHTML = books.map(b => `
+        <div class="book-card">
+          <div class="book-icon">${b.icon || '📘'}</div>
+          <div class="book-title">${b.title}</div>
+          <div class="book-class">${b.class}</div>
+          <a href="${b.file}" download class="btn btn-gold" style="margin-top:12px; padding:8px 18px; font-size:13px;">⬇ Download</a>
+        </div>
+      `).join('');
+      msg.textContent = 'More books will be added soon.';
+    })
+    .catch(err => {
+      document.getElementById('booksEmptyMsg').textContent = 'Could not load books. Check books.json.';
+      console.error(err);
+    });
+</script>
 
 <footer>
   Copyright © 2026 <strong>The IIES</strong> — The Iqra Islamic Educational System, Puran, Shangla, KPK, Pakistan
