@@ -351,10 +351,46 @@
     display:flex; align-items:center; justify-content:center;
     transition:opacity .6s ease;
     cursor:pointer;
+    overflow-y:auto;
   }
-  #splashScreen img{
-    max-width:92vw; max-height:92vh; width:auto; height:auto;
+  #splashScreen .splash-inner{
+    display:flex; flex-direction:column; align-items:center;
+    padding: 30px 20px; text-align:center; max-width:420px;
+  }
+  #splashScreen .splash-logo{
+    width:64px; height:64px; border-radius:50%;
+    margin-bottom:10px; box-shadow:0 4px 16px rgba(0,0,0,0.3);
+  }
+  #splashScreen .splash-character{
+    width:150px; margin: 6px 0 14px;
+    animation: splashFloat 2.6s ease-in-out infinite;
+  }
+  @keyframes splashFloat{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+  }
+  #splashScreen .speech-bubble{
+    background:#fff; color:var(--navy, #0d1a4a);
+    border-radius:16px; padding:16px 20px;
+    position:relative; margin-bottom:8px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  }
+  #splashScreen .speech-bubble::after{
+    content:''; position:absolute; top:-10px; left:50%; transform:translateX(-50%);
+    border-width:0 10px 10px 10px; border-style:solid;
+    border-color:transparent transparent #fff transparent;
+  }
+  #splashScreen .speech-bubble p{
+    margin:0; font-size:14.5px; line-height:1.55; font-weight:600;
+  }
+  #splashScreen .splash-hint{
+    color: rgba(255,255,255,0.6); font-size:12px; margin-top:14px;
+    letter-spacing:.04em;
+  }
+  #splashScreen img.splash-banner{
+    max-width:92vw; max-height:40vh; width:auto; height:auto;
     box-shadow:0 10px 40px rgba(0,0,0,0.4); border-radius:6px;
+    margin-bottom:16px;
   }
   #splashScreen.fade-out{opacity:0; pointer-events:none;}
   body.splash-active{overflow:hidden;}
@@ -480,7 +516,75 @@
 <body class="splash-active">
 
 <div id="splashScreen" onclick="dismissSplash()">
-  <img src="welcome-banner.jpg" alt="Welcome to The Iqra Islamic Educational System">
+  <div class="splash-inner">
+    <img src="logo.jpg" class="splash-logo" alt="IIES Logo">
+
+    <div class="splash-character">
+      <svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- shadow -->
+        <ellipse cx="100" cy="308" rx="55" ry="8" fill="rgba(0,0,0,0.25)"/>
+
+        <!-- black shoes -->
+        <ellipse cx="72" cy="298" rx="20" ry="10" fill="#111"/>
+        <ellipse cx="128" cy="298" rx="20" ry="10" fill="#111"/>
+
+        <!-- white shalwar (pants) -->
+        <path d="M70 190 Q60 250 60 292 L88 292 Q92 250 96 200 Z" fill="#fbfbfb" stroke="#dcdcdc" stroke-width="1.5"/>
+        <path d="M130 190 Q140 250 140 292 L112 292 Q108 250 104 200 Z" fill="#fbfbfb" stroke="#dcdcdc" stroke-width="1.5"/>
+
+        <!-- white qameez (visible under jacket) -->
+        <path d="M74 110 Q70 160 74 200 L126 200 Q130 160 126 110 Z" fill="#ffffff" stroke="#e2e2e2" stroke-width="1.5"/>
+
+        <!-- black blazer/jacket -->
+        <path d="M66 108 Q60 110 58 130 L64 205 L92 205 L96 130 L100 118 L104 130 L108 205 L136 205 L142 130 Q140 110 134 108 L112 100 L100 112 L88 100 Z" fill="#161616"/>
+        <!-- jacket lapels -->
+        <path d="M100 112 L88 100 L96 130 Z" fill="#0b0b0b"/>
+        <path d="M100 112 L112 100 L104 130 Z" fill="#0b0b0b"/>
+
+        <!-- prefect sash (patti) -->
+        <path d="M70 108 L118 205 L134 198 L86 101 Z" fill="#B8860B" opacity="0.95"/>
+        <path d="M70 108 L118 205 L128 201 L82 104 Z" fill="#D4A017"/>
+        <circle cx="118" cy="198" r="9" fill="#D4A017" stroke="#7A5A00" stroke-width="1.5"/>
+        <text x="118" y="201" font-size="8" text-anchor="middle" fill="#5C3E00" font-family="Arial, sans-serif" font-weight="700">★</text>
+
+        <!-- arms -->
+        <path d="M62 118 Q48 150 52 185 L64 187 Q64 155 72 122 Z" fill="#161616"/>
+        <path d="M138 118 Q152 150 148 185 L136 187 Q136 155 128 122 Z" fill="#161616"/>
+        <!-- hands -->
+        <circle cx="56" cy="190" r="8" fill="#E4B08C"/>
+        <circle cx="144" cy="190" r="8" fill="#E4B08C"/>
+
+        <!-- neck -->
+        <rect x="92" y="82" width="16" height="18" fill="#E4B08C"/>
+
+        <!-- head -->
+        <circle cx="100" cy="62" r="30" fill="#F0C29B"/>
+        <!-- hair -->
+        <path d="M70 55 Q68 24 100 22 Q132 24 130 55 Q126 36 100 34 Q74 36 70 55 Z" fill="#161616"/>
+        <!-- ears -->
+        <circle cx="70" cy="64" r="5" fill="#E4B08C"/>
+        <circle cx="130" cy="64" r="5" fill="#E4B08C"/>
+        <!-- face -->
+        <circle cx="89" cy="60" r="3" fill="#1a1a1a"/>
+        <circle cx="111" cy="60" r="3" fill="#1a1a1a"/>
+        <path d="M88 74 Q100 82 112 74" stroke="#8a4a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+        <!-- waving hand -->
+        <g>
+          <circle cx="150" cy="150" r="9" fill="#E4B08C"/>
+          <path d="M138 118 Q158 128 150 150" fill="none" stroke="#161616" stroke-width="14" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="speech-bubble">
+      <p class="i18n"
+         data-en="Welcome to The Iqra Islamic Educational System, Puran! Thank you for visiting our site."
+         data-ur="دی اقرا اسلامک ایجوکیشنل سسٹم، پُران میں خوش آمدید! ہماری ویب سائٹ وزٹ کرنے کا شکریہ۔">Welcome to The Iqra Islamic Educational System, Puran! Thank you for visiting our site.</p>
+    </div>
+
+    <div class="splash-hint i18n" data-en="Tap anywhere to continue" data-ur="جاری رکھنے کے لیے کہیں بھی ٹیپ کریں">Tap anywhere to continue</div>
+  </div>
 </div>
 
 
@@ -1311,7 +1415,16 @@
     document.body.classList.remove('splash-active');
     setTimeout(function(){ splash.style.display = 'none'; }, 650);
   }
-  setTimeout(dismissSplash, 2500);
+  setTimeout(dismissSplash, 4500);
+
+  // Optional voice greeting (best-effort; browsers may block audio until user interacts)
+  try {
+    if ('speechSynthesis' in window) {
+      var greeting = new SpeechSynthesisUtterance('Welcome to The Iqra Islamic Educational System, Puran! Thank you for visiting our site.');
+      greeting.rate = 0.95;
+      window.speechSynthesis.speak(greeting);
+    }
+  } catch (e) { /* speech not supported, ignore */ }
 </script>
 
 <!-- ============================================================
