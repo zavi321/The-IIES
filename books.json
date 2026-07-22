@@ -4,5 +4,11 @@
     "class": "Grade 5",
     "icon": "📗",
     "file": "english-five-keybook.pdf"
+  },
+  {
+    "title": "English Keybook",
+    "class": "Grade 2",
+    "icon": "📗",
+    "file": "english-two-keybook.pdf"
   }
 ]
