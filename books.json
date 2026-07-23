@@ -190,5 +190,17 @@
     "class": "Grade 5",
     "icon": "🔢",
     "file": "KPK-KEYBOOK-MATHS-SUN-FIVE.pdf"
+  },
+  {
+    "title": "Maths Keybook",
+    "class": "Grade 1",
+    "icon": "🔢",
+    "file": "KPK-KEYBOOK-MATHS-SUN-ONE.pdf"
+  },
+  {
+    "title": "Islamiyat Keybook",
+    "class": "Grade 6",
+    "icon": "🕌",
+    "file": "KEYBOOK-ISLAMIYAT-IQBAL-SIX-_T3_.pdf"
   }
 ]
