@@ -172,5 +172,11 @@
     "class": "Grade 1",
     "icon": "🕌",
     "file": "KPK-KEYBOOK-ISL-IQBAL-ONE.pdf"
+  },
+  {
+    "title": "Islamiyat Keybook",
+    "class": "Grade 2",
+    "icon": "🕌",
+    "file": "KPK-KEYBOOK-ISL-IQBAL-TWO.pdf"
   }
 ]
