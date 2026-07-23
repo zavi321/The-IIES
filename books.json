@@ -184,5 +184,11 @@
     "class": "Grade 3",
     "icon": "🕌",
     "file": "KPK-KEYBOOK-ISL-IQBAL-THREE.pdf"
+  },
+  {
+    "title": "Maths Keybook",
+    "class": "Grade 5",
+    "icon": "🔢",
+    "file": "KPK-KEYBOOK-MATHS-SUN-FIVE.pdf"
   }
 ]
