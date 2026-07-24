@@ -208,5 +208,47 @@
     "class": "Grade 7",
     "icon": "🕌",
     "file": "KEYBOOK-ISLAMIYAT-IQBAL-SEVEN__T3_.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 1",
+    "icon": "📕",
+    "file": "urdu-one-keybook.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 2",
+    "icon": "📕",
+    "file": "urdu-two-keybook.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 3",
+    "icon": "📕",
+    "file": "urdu-three-keybook.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 4",
+    "icon": "📕",
+    "file": "urdu-four-keybook.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 5",
+    "icon": "📕",
+    "file": "urdu-five-keybook.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 6",
+    "icon": "📕",
+    "file": "urdu-six-keybook.pdf"
+  },
+  {
+    "title": "Urdu Keybook",
+    "class": "Grade 7",
+    "icon": "📕",
+    "file": "urdu-seven-keybook.pdf"
   }
 ]
